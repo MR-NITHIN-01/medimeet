@@ -5,6 +5,9 @@ import { useRouter } from "next/navigation";
 import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import AIAssistant from "@/components/AIAssistant";
+
+
 import {
   Loader2,
   Video,

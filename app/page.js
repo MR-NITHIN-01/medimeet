@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Stethoscope } from "lucide-react";
+import { ArrowRight, Stethoscope, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -29,7 +29,9 @@ export default function Home() {
                 Book appointments, consult via video, and manage your healthcare
                 journey all in one secure platform.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+
+              {/* Hero Buttons */}
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4">
                 <Button
                   asChild
                   size="lg"
@@ -39,6 +41,7 @@ export default function Home() {
                     Get Started <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
+
                 <Button
                   asChild
                   variant="outline"
@@ -46,6 +49,28 @@ export default function Home() {
                   className="border-emerald-700/30 hover:bg-muted/80"
                 >
                   <Link href="/doctors">Find Doctors</Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-emerald-700/30 hover:bg-muted/80"
+                >
+                  <Link href="/alldoctors">All Doctors</Link>
+                </Button>
+
+                {/* 🩺 New AI Doctor Button */}
+                <Button
+                  asChild
+                  variant="secondary"
+                  size="lg"
+                  className="bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/40 border border-emerald-600/40"
+                >
+                  <Link href="/ai-doctor" className="flex items-center gap-2">
+                    <Bot className="w-5 h-5" />
+                    Talk to Dr. Medi (AI)
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -98,7 +123,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section with green medical styling */}
+      {/* Pricing Section */}
       <section id="pricing" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -118,10 +143,6 @@ export default function Home() {
           </div>
 
           <div className="mx-auto">
-            {/* Clerk Pricing Table */}
-            <Pricing />
-
-            {/* Description */}
             <Card className="mt-12 bg-muted/20 border-emerald-900/30">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold text-white flex items-center">
@@ -162,7 +183,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials with green medical accents */}
+      {/* Testimonials */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -212,7 +233,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section with green medical styling */}
+      {/* CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <Card className="bg-gradient-to-r from-emerald-900/30 to-emerald-950/20 border-emerald-800/20">
@@ -245,7 +266,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Decorative healthcare elements */}
+              {/* Decorative elements */}
               <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-emerald-800/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
               <div className="absolute left-0 bottom-0 w-[200px] h-[200px] bg-emerald-700/10 rounded-full blur-3xl -ml-10 -mb-10"></div>
             </CardContent>

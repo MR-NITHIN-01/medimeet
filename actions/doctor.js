@@ -4,6 +4,35 @@ import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
+export async function getAllDoctors() {
+  try {
+    const doctors = await prisma.user.findMany({
+      where: {
+        role: "DOCTOR",
+        verificationStatus: "VERIFIED",
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        specialty: true,
+        experience: true,
+        description: true,
+        imageUrl: true,
+      },
+      orderBy: {
+        specialty: "asc",
+      },
+    });
+
+    return doctors;
+  } catch (error) {
+    console.error("❌ Error fetching doctors:", error);
+    return [];
+  }
+}
+
+
 /**
  * Set doctor's availability slots
  */
