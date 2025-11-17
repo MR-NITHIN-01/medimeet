@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
                     href="/pricing"
                     className="inline-flex items-center rounded-lg px-4 py-1.5 bg-black/30 ring-1 ring-white/30 text-white hover:bg-black/40 transition"
                   >
-                    View Pricing
+                   a
                   </a>
                 </div>
 
