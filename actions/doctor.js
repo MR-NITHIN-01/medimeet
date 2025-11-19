@@ -1,6 +1,14 @@
+"use server";
+
+import db from "@/lib/prisma";  // << FIXED
+import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
+
+// all your functions below...
 export async function getAllDoctors() {
   try {
     const doctors = await db.user.findMany({
+
       where: {
         role: "DOCTOR",
         verificationStatus: "VERIFIED",
